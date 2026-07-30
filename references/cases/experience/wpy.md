@@ -1,6 +1,7 @@
 # 撰写者经验档案 — wpy（王培元）
 
 > 撰写者：王培元（wpy）　对应审稿人：王工
+> 登记：github: Nafsae　writer_dir: 王培元
 > 条目模板与入档纪律见本目录 `README.md`；升格纪律唯一出处 `references/rules/revision.md` 学习闭环。
 
 ## 审核偏好记录（王工）（H2605066 / H2606029 等案）

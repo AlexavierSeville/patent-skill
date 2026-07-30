@@ -1,6 +1,7 @@
 # 撰写者经验档案 — xxb（夏晓贝）
 
 > 撰写者：夏晓贝（xxb）　对应审稿人：桦笙
+> 登记：github: Nafsae　writer_dir: 夏晓贝
 > 条目模板与入档纪律见本目录 `README.md`；升格纪律唯一出处 `references/rules/revision.md` 学习闭环。
 
 ## 审核偏好记录（桦笙）（X2607008 弧形LED显示屏案 审核1–3，2026-07）
