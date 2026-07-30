@@ -16,10 +16,19 @@
 
 新撰写者不需维护者代办登记：自行提一个 PR 新建 `experience/<自己id>.md`，文件头按模板写明——`github: <自己的GitHub用户名>`、`writer_dir: <自己案件一级目录名>`、对应审稿人。维护者合并该首个 PR 即完成"认证背书"；此后 CI 守卫按文件内登记的 github 用户名校验（PR 作者 ≠ 所改档案登记的 github 名即红灯）。同时在 `global.md` G1 白名单补目录名映射（可并入同一 PR，该行改动由维护者审核）。
 
+## 协作围栏（治理机制）
+
+本仓库 `claude` 分支已启用**分支保护**，配合 CI 路径守卫形成"谁写谁改、越界必拦"的机械化约束：
+
+- **强制 PR（对非 admin）**：`claude` 分支禁止强推、禁止删除分支（`allow_force_pushes=false`、`allow_deletions=false`）。非维护者（如 lxl）所有改动须经 Pull Request 合并；维护者（admin）保留直推权以推进规则演进，`enforce_admins=false` 故保护规则不约束 admin。
+- **审批要求**：PR 须至少 **1 个 approving review**，且 `require_code_owner_reviews=true`——按 `.github/CODEOWNERS` 路由，CODEOWNERS 列出的维护者须审批。作者不得自批自己的 PR。
+- **CI 路径守卫**（`.github/workflows/experience-guard.yml`）：非维护者（`MAINTAINERS=Nafsae`）的 PR **只允许改动一个** `references/cases/experience/*.md`，且该档案头部登记的 `github:` 用户名必须等于 PR 作者（自助注册制）；越界即红灯，PR 不可合并。
+
+**对撰写者（如 lxl）的含义**：直推已不可能；改规则本体（`references/rules/`、`reviewer-preferences.md` 等）会被 CI 红灯挡掉；唯一合法动作是提 PR 修改自己的 `experience/<自己>.md`，并经维护者审批合并。历史教训：`bb6ad0b` 曾直推改 `claims.md` + `reviewer-preferences.md` 绕过守卫，分支保护启用后此类直推被机制阻止。
+
 ## 纪律
 
 - 入档动作挂 `revision.md` 学习闭环：每次返修收尾由 AI 依据锚点上下文+亲笔改动产出条目。
 - 通用项由仓库维护者升格进 `references/rules/`（受锚点守卫、scoring 摘录守卫与测试保护），升格后回标状态；个人口径不进共享规则层。
 - 案件级约定（署名、条数上限、命名）走项目 memory，不入本档案。
 - 案件原始文件（交底书/DOCX/批注稿）一律不进仓库。
-- 协作围栏：非维护者仅允许修改自己的 `experience/<自己>.md`（CI 路径守卫强制）。
