@@ -29,7 +29,7 @@
 - **审批要求**：PR 须至少 **1 个 approving review**，且 `require_code_owner_reviews=true`——按 `.github/CODEOWNERS` 路由，CODEOWNERS 列出的维护者须审批。作者不得自批自己的 PR。
 - **CI 路径守卫**（`.github/workflows/experience-guard.yml`）：非维护者（`MAINTAINERS=Nafsae`）的 PR **只允许改动一个** `references/cases/experience/*.md`，且该档案头部登记的 `github:` 用户名必须等于 PR 作者（自助注册制）；越界即红灯，PR 不可合并。
 
-**对撰写者（如 lxl）的含义**：直推已不可能；改规则本体（`references/rules/`、`reviewer-preferences.md` 等）会被 CI 红灯挡掉；唯一合法动作是提 PR 修改自己的 `experience/<自己>.md`，并经维护者审批合并。历史教训：`bb6ad0b` 曾直推改 `claims.md` + `reviewer-preferences.md` 绕过守卫，分支保护启用后此类直推被机制阻止。
+**对撰写者（如 lxl）的含义**：直推已不可能；改规则本体（`references/rules/`、`references/cases/` 等）会被 CI 红灯挡掉；唯一合法动作是提 PR 修改自己的 `experience/<自己>.md`，并经维护者审批合并。历史教训：`bb6ad0b` 曾直推改 `claims.md` 等规则本体绕过守卫，分支保护启用后此类直推被机制阻止。
 
 ## 纪律
 
